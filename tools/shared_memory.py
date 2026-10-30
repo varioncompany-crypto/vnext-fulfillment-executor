@@ -18,7 +18,8 @@ def search(query):
     if not query.strip() or len(query) > 1000:
         raise RuntimeError('memory_query_invalid')
     req = urllib.request.Request(ENDPOINT, data=json.dumps({'query': query}).encode(), headers={
-        'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json', 'Accept': 'application/json'})
+        'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json', 'Accept': 'application/json',
+        'User-Agent': 'VARION-Cloud-Integration/1.0'})
     try:
         with urllib.request.build_opener(NoRedirect()).open(req, timeout=25) as response:
             raw = response.read(65537)

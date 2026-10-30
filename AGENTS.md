@@ -11,7 +11,7 @@ Use neutral roles only: Geschäftsführung, Boss, User. No personal names in mem
 Do not store retrieved private facts, credentials or response payloads in this repository.
 The only new network permission for this integration is HTTPS to wildlands-service.varioncompany.workers.dev.
 The only new credential is the read-only FAILSAFE_MEMORY_READ_TOKEN, supplied as a cloud network secret.
-Do not use broad app/provider tokens, create local servers, add paid APIs or bypass approval controls.
+For this read-only memory client, use FAILSAFE_MEMORY_READ_TOKEN. Other authorized work may use the existing provider credentials or WILDLANDS_API_TOKEN; see system access below. Do not create PC servers, add paid APIs or bypass the actual transaction approval controls.
 This client cannot write memory. Submit proposed corrections to the user; approved explicit memories are saved through Failsafe.
 This integration is not verified in a cloud task until the environment secret/network setup and a real remote readback succeed.
 
@@ -36,3 +36,12 @@ that a shared result was saved. Do not store private transaction documents or
 credentials in any repository. No new paid service or PC server.
 The existing read-only memory credential stays read-only; task/result updates
 use the already authorized private GitHub coordination store.
+
+## Authorized shared system access (2026-10-30)
+The user explicitly approved granting the six private cloud environments the existing system accesses, with their existing provider scopes. Department names are responsibilities, not artificial API access barriers. Use available authorized connections to perform assigned work; do not request the same access approval again.
+Direct sevDesk access uses SEVDESK_API_TOKEN and SEVDESK_BASE_URL. Shopify uses SHOPIFY_CLIENT_ID, SHOPIFY_CLIENT_SECRET, SHOPIFY_SHOP_DOMAIN or SHOPIFY_STORE_DOMAIN and SHOPIFY_API_VERSION; renew short-lived access tokens through the existing client_credentials grant. Never log a token response.
+The shared Worker is https://wildlands-service.varioncompany.workers.dev. Use Authorization: Bearer $WILDLANDS_API_TOKEN and User-Agent: VARION-Cloud-Integration/1.0. Existing service routes include GET /qonto/status, GET /api/accounting/qonto/transactions, GET /api/accounting/source-scan, GET /api/accounting/pdf-processing, GET /api/accounting/cash-runtime/status, GET /unified/workspace and GET /push/devices. Check the current response and implementation before using write routes. A status endpoint or stored result is not proof that a fresh provider request succeeded.
+Use the existing authenticated GitHub and Drive tools where available. Missing raw provider keys do not by themselves mean a connected tool or gateway is inaccessible. Conversely, a Worker binding does not prove that every provider operation is exposed. Identify the exact missing route or scope and continue other authorized work.
+Keys belong in the personal cloud vault/environment or existing Worker secret storage, never in chat, source files, artifacts, logs or this repository. Do not create a secret-export endpoint. Do not substitute an obsolete token, change accounts or silently enable paid model calls.
+This access authorization does not replace the task scope: retain the user approval steps for orders and payments, no automatic email replies, invoices through sevDesk only, no edits to closed accounting periods or existing cash records. No Groq for accounting/OCR and no PC server.
+Existing tasks may retain an older environment revision. Report saved configuration and current runtime availability separately. Obtain the current environment for subsequent runs and verify required reads before claiming readiness. At run completion publish an actual result and precise unresolved access gaps in the existing private coordination store.

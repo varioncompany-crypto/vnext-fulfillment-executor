@@ -3,7 +3,7 @@ name: varion-fulfillment-worklist
 description: "Fuehrt offene Zahlungsstatus-, Warenuebergabe-, Versand-, Reservierungs- und Retourenfaelle in einer belegten Arbeitsliste zusammen. Nutzen fuer Operations-Triage; keine zusaetzliche Rechnung, Erstattung oder Kundenkommunikation."
 metadata:
   owner_role: operations
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # varion-fulfillment-worklist
@@ -70,3 +70,11 @@ in einer alten Notiz ersetzt keine Zugriffsprüfung.
 - Beende den gemeinsamen Kontextlauf wie in AGENTS.md vorgesehen. Fehlt ein Zugriff,
   benenne den genauen Reader/Scope/Fehler, setze nur abhängige Arbeit aus und behaupte
   weder gespeicherte Ergebnisse noch eine erfolgreiche Live-Abnahme.
+
+## Sichere Diagnoseausgabe
+Bei Einrichtung, Leseproben und Tests private Kontext-/Providerdaten im privaten
+Scratch verarbeiten. Keine Rohantworten, Finanzreferenzen oder Memory-Treffer in
+Toolprotokolle ausgeben. Nutze `node tools/safe-readback.mjs /tmp/readback.json`
+für Status, Umfang und Prüfsumme; der Metadatennachweis ersetzt keine Fachprüfung.
+Eine ausdrücklich nur lesende Testanweisung schließt schreibende Bootstrap-
+Receipts aus. Automatische Erkennung, manuelles Laden und Fachtest getrennt belegen.

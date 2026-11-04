@@ -69,3 +69,6 @@ Preserve the existing finance/accounting agent. Share tasks via coordination
 and confirmed rules via the existing company rule store, not chat-only memory.
 This configuration is not evidence that email, moderation, Failsafe approval UI,
 annual-limit enforcement or autonomous execution has passed runtime acceptance.
+
+## Company inbox each Operations run (2026-11-04)
+At every existing Operations run, read the current private CEO architecture/failsafe-company-inbox.v1.json and load GET /intelligence/company-events using existing authorized server-side credentials. Follow nextCursor pagination and keep real payloads private. Read fresh decisions for owned cases; verify proposalHash, version and policy scope. Approvals are not execution receipts. Process real cases only within current authorization. Never execute business actions for synthetic records. Reuse stable IDs and reconcile uncertain writes before repeating. No new automation or accounting-agent change.

@@ -49,3 +49,23 @@ Existing tasks may retain an older environment revision. Report saved configurat
 
 ### Known cloud networking recovery (2026-10-30)
 For an authorized API read, errno 1 / Operation not permitted or curl 7 mentioning proxy:8080 does not by itself prove bad credentials or a dead proxy. Check the runtime skill and network policy, then use the shell tool's supported network permission/escalation path when available. Preserve the configured proxy and TLS trust; do not bypass them. Repeat only the failed read and record the real HTTP status. This recovered the CEO and procurement access checks on 2026-10-30. New published snapshots recovered other stale setup runtimes. A configured/running environment alone is not proof of network access. No Drive connector was exposed in these test runtimes; report that separately from successful GitHub, sevDesk, Shopify and Worker reads.
+
+## Approved customer service rules (2026-11-04)
+The authoritative policy is architecture/customer-service-workflow.2026-11-04.json
+in private varioncompany-crypto/vnext-ceo. The current shared_context.py loads it
+as customerService in /tmp/varion-shared-context.json for role operations.
+Read that policy before customer-service or product-review work. If an older
+snapshot lacks it, retrieve the policy at the SAME rulesRevision through the
+existing authenticated connection; do not guess or use a stale local copy.
+The user's approved case-bound support messages are a narrow exception to the
+historical blanket 'no automatic email replies' rule. No other email permission
+is changed. Do not send reminders to customers who do not reply.
+Apply the confirmed EUR 10 total / one per customer per rolling 12 months
+company-wide goodwill rule only with verified identity, costs, history and
+exclusive case ownership. This is not a cap on statutory customer rights.
+Escalate other replacement/refund decisions through Failsafe; keep approval,
+physical return, refund confirmation and replacement dispatch separate.
+Preserve the existing finance/accounting agent. Share tasks via coordination
+and confirmed rules via the existing company rule store, not chat-only memory.
+This configuration is not evidence that email, moderation, Failsafe approval UI,
+annual-limit enforcement or autonomous execution has passed runtime acceptance.

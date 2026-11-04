@@ -72,3 +72,17 @@ annual-limit enforcement or autonomous execution has passed runtime acceptance.
 
 ## Company inbox each Operations run (2026-11-04)
 At every existing Operations run, read the current private CEO architecture/failsafe-company-inbox.v1.json and load GET /intelligence/company-events using existing authorized server-side credentials. Follow nextCursor pagination and keep real payloads private. Read fresh decisions for owned cases; verify proposalHash, version and policy scope. Approvals are not execution receipts. Process real cases only within current authorization. Never execute business actions for synthetic records. Reuse stable IDs and reconcile uncertain writes before repeating. No new automation or accounting-agent change.
+
+## Private readbacks during diagnostics and tests (2026-11-04)
+For setup, health checks and test runs, do not echo private contracts, memory hits,
+provider bodies, account references or credentials into tool logs or chat. Capture
+responses into private scratch and inspect/process them inside the program. Avoid
+cat, printing response.text(), unrestricted jq, repr(error), env dumps and raw
+tracebacks for these inputs. Emit only the minimum needed status, coverage,
+revision and hash. Use `node tools/safe-readback.mjs /tmp/readback.json` for a
+fixed metadata-only summary; it deliberately omits content and arbitrary keys.
+Do not call a summary proof that the full business meaning was reviewed.
+When the user requests a read-only/report-only test, skip context bootstrap steps
+that write receipts; retrieve the same current canonical context without writes.
+An unavailable catalog is not automatic skill discovery. A manually loaded file
+is not proof that the published Cloud snapshot contains it.

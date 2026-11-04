@@ -1,5 +1,15 @@
 # Cloud agent instructions
 
+## Automatic role playbook loading (2026-11-04, file-fallback-v1)
+For a task about open order work, payment/hand-over/shipping evidence and prioritised fulfillment worklists (offene Auftraege, Arbeitsliste, Zahlungseingang, Uebergabe, Versandnachweis), automatically apply `varion-fulfillment-worklist` before substantive analysis, even when the user does not name a skill. This is an additive role workflow, like the existing explicit OCR/context procedures, not a new scheduler or permission.
+1. Prefer a matching actually offered native skill and read its complete instructions through its actual returned source. Do not invent a native source or treat metadata as the full instructions.
+2. If the native interface or matching entry is unavailable, use the supported repository-file fallback: read the COMPLETE `.agents/skills/varion-fulfillment-worklist/SKILL.md` from this role repository (`/workspace/vnext-fulfillment-executor` in Cloud). Resolve the path inside the actual repository; require a readable regular file and frontmatter name `varion-fulfillment-worklist`. Resolve its relative resources from that skill folder. Use ordinary read-only shell/file tools; no installation, elevated rights, copied skill directories or catalog repair is required.
+3. If the prepared checkout lacks the file, retrieve that exact path from the current default branch of `varioncompany-crypto/vnext-fulfillment-executor` through the existing authenticated GitHub connection. Read it fully and retain the actual returned revision/blob reference. Do not create a replacement clone, overwrite local work, or substitute another role's instructions.
+4. Apply the loaded procedure, preserve the existing role/context and transaction controls, and keep unknown business inputs unknown. If neither source can be read, mark only the dependent assessment unavailable and continue independent work. An empty executor catalog alone must not block a valid file fallback.
+5. In setup/tests record the actual skill name, load method (native or repository_file_fallback), source reference, observed SHA-256 or blob revision, and whether the complete instructions were read before analysis. Never call file loading native discovery or claim a repaired executor catalog.
+Do not force this playbook for unrelated translation, casual questions, code edits or other tasks outside the triggers. Existing accounting/booking/OCR and other authorized workflows remain in force.
+Explicit synthetic/read-only tests must skip receipt-writing bootstrap, shared-task/memory/inbox writes and business-provider calls; test data authorize no real payment, order, message, publication or deployment. No new paid API or infrastructure.
+
 ## Shared cloud memory (2026-10-30)
 Before answering company/project questions, decisions or planning, run:
 `python -B tools/shared_memory.py "specific subject of the current task"`

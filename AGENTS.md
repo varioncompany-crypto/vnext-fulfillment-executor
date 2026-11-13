@@ -22,7 +22,7 @@ Do not store retrieved private facts, credentials or response payloads in this r
 The only new network permission for this integration is HTTPS to wildlands-service.varioncompany.workers.dev.
 The only new credential is the read-only FAILSAFE_MEMORY_READ_TOKEN, supplied as a cloud network secret.
 For this read-only memory client, use FAILSAFE_MEMORY_READ_TOKEN. Other authorized work may use the existing provider credentials or WILDLANDS_API_TOKEN; see system access below. Do not create PC servers, add paid APIs or bypass the actual transaction approval controls.
-This client cannot write memory. Submit proposed corrections to the user; approved explicit memories are saved through Failsafe.
+The shared_memory.py client is read-only. For a confirmed durable company fact, update the existing varioncompany-crypto/varion-platform knowledge/failsafe/company-memory.v1.json with source and date, then publish that exact Git revision to the existing WILDLANDS_KV key failsafe:knowledge:v1 through authorized Cloudflare access. Verify the Git blob, KV readback and a focused shared_memory.py read before saying new chats know it. Keep current tasks/results in the CEO TaskPort, and explicit personal user memories in Failsafe's Merken/Vergessen path. If this role lacks an authorized writer, save the sourced pending correction in its existing task and report the exact missing write step; never invent a second memory store or treat an AGENTS.md edit as a completed sync.
 This integration is not verified in a cloud task until the environment secret/network setup and a real remote readback succeed.
 
 ## Automatic shared context and results (2026-10-30)

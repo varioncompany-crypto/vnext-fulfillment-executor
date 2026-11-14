@@ -97,11 +97,31 @@ that write receipts; retrieve the same current canonical context without writes.
 An unavailable catalog is not automatic skill discovery. A manually loaded file
 is not proof that the published Cloud snapshot contains it.
 
-## Commit-bound inbox poll readback repair (2026-11-11)
-The existing /workspace/work/cs-auto/poll.py put helper read mutable main immediately after its Contents API PUT. That comparison can reject a successful write when main differs from the returned commit. A failed acquisition readback can leave its already persisted lease until expiry. Do not clear that lease manually or treat expiry alone as proof of a failed write.
-Before the next already authorized Operations poll, retrieve tools/fix_poll_readback.py and tools/test_poll_readback.py from ONE current revision of this role repository using the existing authenticated connection. Keep them together in private local scratch; run python -B -m unittest -v test_poll_readback.py from that directory. Only after the tests pass, run python -B fix_poll_readback.py /workspace/work/cs-auto/poll.py. The installer performs only a guarded local code replacement, retains a backup, checks syntax and exact local readback, and refuses unexpected source or concurrent local changes. It never calls a provider or executes the poller. If the file is absent or differs, inspect the actual existing implementation; do not invent a replacement state or deploy an unrelated poller.
-The replacement requires the actual PUT response's commit and blob SHA, reads exactly that immutable commit and verifies both JSON content and blob identity. It performs no write retry on timeout, 409 or uncertain outcome. This proves persistence of that particular write, not current lease ownership. Existing fresh guard(), expected blob SHA, version, expiry, owner, cursor, synthetic-isolation and duplicate checks MUST remain in force before subsequent work. A stale or superseded lease must still stop processing.
-Continue only the existing authorized run after the local repair; no new schedule, agent, message, forced lease reset, policy bypass or expanded business scope. Do not execute a production poll merely as a test. Record real runtime acceptance only after an ordinary authorized run confirms the current owner/lease, source coverage and successful release. Seven controlled local tests passed; publication of this repair alone is not Cloud execution acceptance.
+## Versioned customer-service poll entry (2026-11-14)
+For the existing Operations schedule, use `python -B tools/customer_service_poll.py --run`
+from this repository after publishing this role revision. Retrieve/update this versioned entry from the same published
+role revision as AGENTS.md; do not require `/workspace/work/cs-auto/poll.py`.
+The old scratch-only path is historical. Do not create another scheduler or queue.
+
+This entry performs bounded inbox reconciliation and writes sanitized receipts in
+the existing private CEO coordination register under its existing CAS lease. It
+reads current customer-service and company-inbox contracts from one CEO commit.
+It does NOT execute customer actions, intake POSTs, learning submissions, synthetic
+acceptance, or canonical task transitions. The recurringAcceptance intake rejection
+remains in force. An approved decision stays pending for the separately authorized
+executor; a read result is never a completed business action.
+
+Run `python -B -m unittest discover -s tests -v` for local lease/idempotency coverage.
+Local tests and a published commit do not prove an unattended scheduled run.
+Before claiming regular runtime acceptance require the published environment to
+contain this exact entry, an ordinary existing schedule trigger, immutable result
+readback, bounded source coverage, current lease checks and its own lease release.
+Use only actual exposed run metadata; unavailable run IDs/triggers stay unknown.
+
+The historical `tools/fix_poll_readback.py` and its tests repair only an existing
+legacy scratch poller. They cannot restore an absent entry and are not an installer
+for this versioned client. The new client independently verifies PUT commit/blob
+receipts against the immutable commit and never retries an uncertain write.
 
 ## Shopify invoice origin shared across roles (2026-11-11)
 The user authorized a separate invoice number range per shop and automatic original PDF generation/import through the existing Shopify integration. Read shopifyInvoiceMigration in the current private CEO architecture/accounting-workflow.2026-10-30.json before handling an invoice-dependent case. This supersedes the historical blanket sevDesk-only issuer rule, without expanding this role's execution or payment permissions.
